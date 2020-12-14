@@ -12,7 +12,7 @@ int main()
 {
     int cost_matrix[20][20];
     int nodes, i, j, k, count=0;
-    char *via[20][20];
+    
 
     printf("\nEnter the number of nodes : ");
 
@@ -45,8 +45,6 @@ int main()
                         router[i].dist[j] = router[i].dist[k] + router[k].dist[j];
                         router[i].from[j] = k;
                         
-                        char z = (char)k;
-                        strncat(router[i].via, &z, 1);
                         count++;
                     }
                 }
@@ -60,7 +58,7 @@ int main()
         printf("\n\n For router %d\n",i+1);
         for(j=0; j<nodes; j++)
         {
-            printf("\t\nnode %d via %d %s Distance %d ", j+1, router[i].from[j]+1, via[i][j], router[i].dist[j]);
+            printf("\t\nnode %d via %d Distance %d ", j+1, router[i].from[j]+1, router[i].dist[j]);
         }
     }
 
