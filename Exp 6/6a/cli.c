@@ -11,11 +11,11 @@ void str_cli(FILE *fp, int sockfd)
 	int bufsize = 1024;
 	char *buffer = malloc(bufsize);
 
-	while (fgets(buffer, bufsize, fp) != NULL)
+	while (fgets(buffer,bufsize,fp) != NULL)
 	{
-		send(sockfd, buffer, sizeof(buffer), 0);  
+		send(sockfd, buffer, 50, 0);  
 		if (recv(sockfd, buffer, bufsize, 0) > 0) 
-	    		fputs(buffer, stdout);
+	    		fputs(buffer,stdout);
 	}
 	
 	printf("\nEOF\n");
